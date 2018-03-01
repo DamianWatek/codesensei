@@ -9,9 +9,9 @@ y = gets.to_i
 z = gets.to_i
 
 if x < y && y < z
-  puts "Ciag jest rosnący"
+  puts "Ciąg jest rosnący"
 elsif x > y && y > z
-  puts "Ciag jest malejący"
+  puts "Ciąg jest malejący"
 else
   puts "Złe wartości"
 end
