@@ -3,7 +3,6 @@
 # IN:   numer miesiąca 
 # OUT:  liczba dni w danym miesiącu
 
-
 month_array = ["styczeń 31", "luty 28", "marzec 31", "kwieceń 30", "maj 31", "czerwiec 30", "lipiec 31", "sierpień 31", "wrzesień 30", "październik 31", "listopad 30", "grudzień 31" ]
 
 puts "Sprawdź ile miesiąc ma dni. Podaj numer miesiąca: "
@@ -15,5 +14,3 @@ if x == 0 || x > 12
 else
   puts month_array[z]
 end
-
- 
