@@ -1,14 +1,14 @@
 # Napisz program wyliczający największy wspólny dzielnik dwóch liczb używając
 
-x = gets.to_i
-y = gets.to_i
 
-while x != y
-  if y > x
-    y = y - x
-  else 
-    x = x - y
+def nwd(a, b)
+  while b != 0
+    c = a % b
+    a = b
+    b = c
+    puts "a: #{a} | b: #{b} | c: #{c}"
   end 
-  puts x
-end 
-puts "NWD = #{x}"
+  puts "NWD = #{a}"
+end
+
+nwd(1989, 867)
