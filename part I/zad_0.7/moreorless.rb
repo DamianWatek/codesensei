@@ -7,7 +7,7 @@ puts "Podaj dwie liczby: "
 x = gets.to_i
 y = gets.to_i
 
-if x == y || x > y
+if x >= y
   puts x
 else
   puts y

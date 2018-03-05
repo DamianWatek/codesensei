@@ -10,8 +10,6 @@ z = gets.to_i
 
 if x < y && y < z
   puts "Ciąg jest rosnący"
-elsif x > y && y > z
-  puts "Ciąg jest malejący"
 else
-  puts "Złe wartości"
+  puts "Ciąg nie jest rosnący"
 end

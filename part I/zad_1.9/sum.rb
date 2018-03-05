@@ -4,13 +4,11 @@
 
 n = gets.to_i
 i = 0
-temp = 0
 sum = 0
 
 while i < n
-  temp = sum
   i = i + 1
   k = i * i
-  sum = temp + k
+  sum = sum + k
 end
 puts sum

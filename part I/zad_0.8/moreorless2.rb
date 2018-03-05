@@ -9,9 +9,10 @@ y = gets.to_i
 z = gets.to_i
 
 if x > y && x > z
-  puts "#{x} jest największe"
+  n = x
 elsif y > z
-  puts  "#{y} jest największe"
+  n = y
 else
-  puts "#{z} jest najwieksze"
+  n = z
 end
+puts "#{n} jest największe"

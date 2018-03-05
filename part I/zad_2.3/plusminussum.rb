@@ -3,20 +3,18 @@
 # OUT:  Komunikat "Suma dodatnich: 15" i "Suma ujemnych: -5"
 
 n = gets.to_i
-sumP = 0
-sumM = 0
+sum_plus = 0
+sum_minus = 0
 
 while n != 0
   if n > 0
-    tempP = sumP
-    sumP = tempP + n
+    sum_plus = sum_plus + n
   else
-    tempM = sumM
-    sumM = tempM + n
+    sum_minus = sum_minus + n
   end
-  puts "sumP: #{sumP}, sumM: #{sumM} "
+  puts "sum_plus: #{sum_plus}, sum_minus: #{sum_minus} "
   n = gets.to_i
 end
 
-puts "Suma dodatnich: #{sumP}"
-puts "Suma ujemnych: #{sumM}"
+puts "Suma dodatnich: #{sum_plus}"
+puts "Suma ujemnych: #{sum_minus}"
