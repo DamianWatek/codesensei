@@ -10,6 +10,8 @@
 # 9×a + 7×b + 3×c + 1×d + 9×e + 7×f + 3×g + 1×h + 9×i + 7×j
 
 def pesel(pesel)
+  # Metoda digits nie działa jeśli zaczniemy pesel od 0, nie mogę znaleźć dlaczego 
+  
   arr = pesel.digits.reverse
   # arr = [9, 0, 0, 8, 1, 6, 1, 4, 6, 3, 2]
 
@@ -33,14 +35,17 @@ def pesel(pesel)
     dd = "#{arr[4]}#{arr[5]}"
     mm = "#{arr[2]}#{arr[3]}"
     rr = "#{arr[0]}#{arr[1]}"
-    
-    # niestety mm to string nie integer, warunek trzeba zmienić
+    mill_rr = 19
+    mm = mm.to_i
+
+    # warunek dla osób po 2000 roku
     if mm > 20
       mm = mm - 20
+      mill_rr += 1
     end 
 
-    puts "- data urodzenia: #{dd}-#{mm}-19#{rr}" 
+    puts "- data urodzenia: #{dd}-#{mm}-#{mill_rr}#{rr}" 
   end 
 end
 
-pesel(11210951514)
+pesel(10311690915)
