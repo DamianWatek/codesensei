@@ -12,7 +12,7 @@ while n != 0
   else
     sum_minus = sum_minus + n
   end
-  puts "sum_plus: #{sum_plus}, sum_minus: #{sum_minus} "
+  # puts "sum_plus: #{sum_plus}, sum_minus: #{sum_minus} "
   n = gets.to_i
 end
 

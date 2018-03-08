@@ -5,20 +5,17 @@
 # • wyprowadzając/znajdując wzór na sumę takich liczb (podpowiedź: jest to ciąg
 # arytmetyczny)
 
-def addEven(n)
+def add_even(n)
   i = 0
   sum = 0
-  temp = 0
   while i < n
     
     i = i + 1
-    
     if i % 2 == 0
-      temp = sum
-      sum = temp + i
+      sum = sum + i
     end
   end  
   puts sum
 end
 
-addEven(11)
+add_even(11)

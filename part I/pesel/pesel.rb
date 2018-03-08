@@ -13,7 +13,6 @@ def pesel(pesel)
   # Metoda digits nie działa jeśli zaczniemy pesel od 0, nie mogę znaleźć dlaczego 
   
   arr = pesel.digits.reverse
-  # arr = [9, 0, 0, 8, 1, 6, 1, 4, 6, 3, 2]
 
   sum = 9 * arr[0] + 7 * arr[1] + 3 * arr[2] + 1 * arr[3] + 9 * arr[4] + 7 * arr[5] + 3 * arr[6] + 1 * arr[7] + 9 * arr[8] + 7 * arr[9]
   cor = sum % 10
