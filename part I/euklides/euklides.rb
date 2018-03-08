@@ -6,9 +6,8 @@ def nwd(a, b)
     c = a % b
     a = b
     b = c
-    puts "a: #{a} | b: #{b} | c: #{c}"
   end 
-  puts "NWD = #{a}"
+  a
 end
 
-nwd(1989, 867)
+puts nwd(1989, 867)

@@ -11,16 +11,19 @@ def find_index(array, value)
   
   while x <= y
     if array[x] == value
-      puts "Twoja liczba jest na miejscu #{x} licząc że pierwszy element ma index 0"
-      exit(0)
+      return "Twoja liczba jest na miejscu #{x} licząc że pierwszy element ma index 0"
     else
       x = x + 1
     end
   end 
-  puts 'not found'
+  "not found"
 end
 
-find_index([1, 2, 3, 4, 5], 3)
-find_index([5, 8, 6, 2, 2, 10], 2)
-find_index([10, 20, 30], 100)
-find_index([], 0)
+answer = find_index([1, 2, 3, 4, 5], 3)
+puts answer
+answer_1 = find_index([5, 8, 6, 2, 2, 10], 2)
+puts answer_1
+answer_2 = find_index([10, 20, 30], 100)
+puts answer_2
+answer_3 = find_index([], 0)
+puts answer_3
