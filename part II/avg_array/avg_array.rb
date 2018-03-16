@@ -5,10 +5,12 @@
 
 def avg_array(*arrays)
   result = []
-  # DO ZROBIENIA
-  result << (arrays[0][0] + arrays[1][0]) /2
-  puts result
+  arr_trans = arrays.transpose
+  arr_trans.map do |item|
+    result << (item.sum(0.0)) / arrays.length
+  end
+  result.to_s
 end
 
-avg_array([1, 3, 5], [3, 5, 7]) #=> [2, 4, 6]
-# avg_array([1, 5, 3, 22], [12, 22, 13, 5], [5, 12, 24, 5], [14, 40, 5, 17]) #=> [8, 19.75, 11.25, 13.5]
+puts avg_array([1, 3, 5], [3, 5, 7]) #=> [2, 4, 6]
+puts avg_array([1, 5, 3, 22], [12, 22, 13, 5], [5, 12, 24, 5], [14, 40, 5, 17]) #=> [8, 19.75, 11.25, 13.5]
