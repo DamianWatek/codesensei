@@ -7,13 +7,17 @@
  
 # Twoim zdaniem jest napisanie funkcji, która przetwarza string według powyższej reguły.
 
-def backspace(string)
-  string.each_char do |i|
-    
+def backspaces(string)
+  array = string.split("")
+  while array.include?("#")
+    i = array.index("#")
+    array.delete_at(i)
+    array.delete_at(i - 1)
   end
+  array.join
 end
 
-backspace("a#bc#d")
-backspace("abc#d##c")
-backspace("abc##d######")
-backspace("######")
+puts backspaces("a#bc#d")
+puts backspaces("abc#d##c")
+puts backspaces("abc##d######")
+puts backspaces("######")
