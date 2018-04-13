@@ -20,36 +20,37 @@ class Library
   end
   # Wyświetlanie listy książek
   def show_books_list
-   @books.each do |key, value|
+   books.each do |key, value|
     puts "Tittle: #{key.tittle}, Author: #{key.author}, Available?: #{value}"
    end
   end
   # Dodawanie książek
   def add_books(tittle, author)
-    @books[Book.new(tittle, author)] = true
+    books[Book.new(tittle, author)] = true
   end
   # Dodawanie czytelnika
   def add_reader(reader)
-    def cart_number
-      cart_number = []
-      3.times { |i| cart_number << ('A'..'Z').to_a.sample }
-      6.times { |i| cart_number << rand(10) }
-      cart_number.join
-    end
     readers[reader] = cart_number
+  end
+  # Generowanie numeru karty
+  def cart_number
+    cart_number = []
+    3.times { |i| cart_number << ('A'..'Z').to_a.sample }
+    6.times { |i| cart_number << rand(10) }
+    cart_number.join
   end
   # Wyświetlanie listy czytelników
   def show_readers_list
-    @readers.each do |reader, cart|
+    readers.each do |reader, cart|
       puts "Name: #{reader.name}, Age: #{reader.age}, Cart number: #{cart}"
     end
   end
   # Szukanie książek 
   def find_book(book_tittle, action)
     if action == "borrow"
-      @books.each do |book, value|
+      books.each do |book, value|
         if book_tittle == book.tittle && value == true
-          @books[book] = false
+          books[book] = false
           return book
         elsif book_tittle == book.tittle && value == false
           return false
@@ -57,9 +58,9 @@ class Library
       end
       nil
     elsif action == "donating"
-      @books.each do |book, value|
+      books.each do |book, value|
         if book_tittle == book.tittle && value == false
-          @books[book] = true
+          books[book] = true
           return "Dziękujemy za zwrot książki."
         elsif book_tittle == book.tittle && value == true
           return true
@@ -70,7 +71,7 @@ class Library
   end
 end
 
-class Book < Library
+class Book
   attr_reader :tittle
   attr_reader :author
   
@@ -80,7 +81,7 @@ class Book < Library
   end
 end
 
-class Reader < Library
+class Reader
   attr_reader :name
   attr_reader :age
   attr_reader :my_books
@@ -100,20 +101,20 @@ class Reader < Library
     elsif book == false
       puts "Książka jest już wypożyczona"
     else
-      @history << [ book.tittle, Time.new(2018, 3, 10, 15, 30) ] 
-      @my_books << [ book.tittle, Time.new(2018, 3, 10, 15, 30) ] 
+      history << [ book.tittle, Time.new(2018, 3, 10, 15, 30) ] 
+      my_books << [ book.tittle, Time.new(2018, 3, 10, 15, 30) ] 
     end
   end
   # Oddawanie książek 
   def donating_book(book_tittle, library)
-    @my_books.each do |my_book|
+    my_books.each do |my_book|
       donating = library.find_book(book_tittle, "donating")
       if my_book[0] == book_tittle
         puts donating
-        @history.delete(my_book)
+        history.delete(my_book)
         my_book << Time.now
-        @history << my_book
-        @my_books.delete(my_book)
+        history << my_book
+        my_books.delete(my_book)
       elsif donating == nil
         puts "Nie mieliśmy takiej książki"
       elsif donating == true

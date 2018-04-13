@@ -80,28 +80,30 @@ loop do
   puts menu
   print "What is your choice?: "
   answer = gets.chomp.to_i
-  if answer == 1
-    show_products
-  elsif answer == 2
-    puts "What do you need?"
-    name = gets.chomp
-    puts find_product(name)
-  elsif answer == 3
-    puts "Below what value you are looking for products ?"
-    value = gets.chomp.to_i
-    cheaper_products(value)
-  elsif answer == 4
-    puts "Above what value you are looking for products ?"
-    value = gets.chomp.to_i
-    expensive_products(value)
-  elsif answer == 5
-    puts "Put exchenge and currency: "
-    print ":=> " 
-    exchange = gets.to_i
-    print ":=> " 
-    currency = gets.chomp
-    exchange(exchange, currency)
+  case answer
+    when 1
+      show_products
+    when 2
+      puts "What do you need?"
+      name = gets.chomp
+      puts find_product(name)
+    when 3
+      puts "Below what value you are looking for products ?"
+      value = gets.chomp.to_i
+      cheaper_products(value)
+    when 4
+      puts "Above what value you are looking for products ?"
+      value = gets.chomp.to_i
+      expensive_products(value)
+    when 5
+      puts "Put exchenge and currency: "
+      print ":=> " 
+      exchange = gets.to_i
+      print ":=> " 
+      currency = gets.chomp
+      exchange(exchange, currency)
+    when 6
+      exit[0]
   end
-  break if answer == 6
 
 end
