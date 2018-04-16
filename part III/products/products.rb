@@ -105,5 +105,4 @@ loop do
     when 6
       exit[0]
   end
-
 end
