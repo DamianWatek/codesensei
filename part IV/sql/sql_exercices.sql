@@ -110,8 +110,21 @@ SELECT Manufacturers.name FROM Manufacturers
   HAVING AVG(Price) >= 150;
   
 -- 15. Wyświetl nazwę oraz cenę najtańszego produktu w sklepie.
+SELECT Name, Price FROM Products 
+  WHERE Price = ( SELECT MIN(price) FROM Products );
 
 -- 16. Wyświetl nazwę każdego producenta wraz z nazwą oraz ceną najdroższego produktu tego producenta.
+
+SELECT new_x.name, new_x.price, (
+  SELECT Name from Products
+    WHERE new_x.price = Products.price
+    LIMIT 1
+  ) AS Name from ( 
+      SELECT Manufacturers.code, Manufacturers.name, max(price) AS Price FROM Products
+        INNER JOIN Manufacturers ON products.manufacturer = manufacturers.code
+        GROUP BY Manufacturers.code
+        ORDER BY Manufacturers.code
+      ) AS new_x;
 
 -- 17. Dodaj nowy produkt przypisany do producenta o id 2 z danymi: Loudspeakers, 70.
 
