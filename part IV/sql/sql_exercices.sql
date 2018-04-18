@@ -114,7 +114,6 @@ SELECT Name, Price FROM Products
   WHERE Price = ( SELECT MIN(price) FROM Products );
 
 -- 16. Wyświetl nazwę każdego producenta wraz z nazwą oraz ceną najdroższego produktu tego producenta.
-
 SELECT new_x.name, new_x.price, (
   SELECT Name from Products
     WHERE new_x.price = Products.price
@@ -127,10 +126,19 @@ SELECT new_x.name, new_x.price, (
       ) AS new_x;
 
 -- 17. Dodaj nowy produkt przypisany do producenta o id 2 z danymi: Loudspeakers, 70.
+INSERT INTO Products(Name, Price, Manufacturer) VALUES('Loudspeakers', 70, 2);
 
 -- 18. Zaktualizuj nazwę produktu o id 8 na Laser Printer
+UPDATE Products
+  SET Name = 'Laser Printer'
+  WHERE code = 8;
 
 -- 19. Zaktualizuj ceny wszystkich produktów o 10% rabat.
 
--- 20. Zaktualizuj ceny wszystkich produktów, których ceny są większe od 120, o 10% rabat.
+UPDATE Products
+  SET Price = (Price + (Price * 0.1));
 
+-- 20. Zaktualizuj ceny wszystkich produktów, których ceny są większe od 120, o 10% rabat.
+UPDATE Products
+  SET Price = (Price + (Price * 0.1))
+  WHERE Price > 120;
